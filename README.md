@@ -11,5 +11,3 @@ go run server2.go
 </pre>
 
 browse website: http://localhost:9001
-
-# test line
