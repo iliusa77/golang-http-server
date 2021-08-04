@@ -25,6 +25,8 @@ steps:
     mv !(gopath) '$(modulePath)'
     echo '##vso[task.prependpath]$(GOBIN)'
     echo '##vso[task.prependpath]$(GOROOT)/bin'
+    ls '$(GOPATH)/pkg
+    ls '$(modulePath)'
   displayName: 'Set up the Go workspace'
 
 - script: |
@@ -34,6 +36,6 @@ steps:
         curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
         dep ensure
     fi
-    go build -v .
+    go run ./server2.go
   workingDirectory: '$(modulePath)'
   displayName: 'Get dependencies, then build'
